@@ -29,7 +29,7 @@ namespace PseudoRandomNumbers
         /// </summary>
         private void InitializeComponent()
         {
-            this.txta_output = new System.Windows.Forms.RichTextBox();
+            this.txt_output = new System.Windows.Forms.RichTextBox();
             this.lbl_output = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,21 +44,33 @@ namespace PseudoRandomNumbers
             this.label5 = new System.Windows.Forms.Label();
             this.cmb_generador = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtChiCuadrado = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvTabla = new System.Windows.Forms.DataGridView();
+            this.Li = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ls = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbIntervalos = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.SuspendLayout();
             // 
-            // txta_output
+            // txt_output
             // 
-            this.txta_output.Location = new System.Drawing.Point(12, 286);
-            this.txta_output.Name = "txta_output";
-            this.txta_output.Size = new System.Drawing.Size(356, 152);
-            this.txta_output.TabIndex = 6;
-            this.txta_output.Text = "";
+            this.txt_output.Location = new System.Drawing.Point(394, 37);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.Size = new System.Drawing.Size(356, 152);
+            this.txt_output.TabIndex = 6;
+            this.txt_output.Text = "";
             // 
             // lbl_output
             // 
             this.lbl_output.AutoSize = true;
             this.lbl_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_output.Location = new System.Drawing.Point(12, 258);
+            this.lbl_output.Location = new System.Drawing.Point(12, 231);
             this.lbl_output.Name = "lbl_output";
             this.lbl_output.Size = new System.Drawing.Size(71, 25);
             this.lbl_output.TabIndex = 7;
@@ -142,7 +154,7 @@ namespace PseudoRandomNumbers
             // 
             // btn_iniciar
             // 
-            this.btn_iniciar.Location = new System.Drawing.Point(108, 230);
+            this.btn_iniciar.Location = new System.Drawing.Point(192, 199);
             this.btn_iniciar.Name = "btn_iniciar";
             this.btn_iniciar.Size = new System.Drawing.Size(75, 23);
             this.btn_iniciar.TabIndex = 5;
@@ -152,10 +164,10 @@ namespace PseudoRandomNumbers
             // 
             // msk_n
             // 
-            this.msk_n.Location = new System.Drawing.Point(12, 230);
-            this.msk_n.Mask = "00000";
+            this.msk_n.Location = new System.Drawing.Point(12, 203);
+            this.msk_n.Mask = "0000000000";
             this.msk_n.Name = "msk_n";
-            this.msk_n.Size = new System.Drawing.Size(38, 20);
+            this.msk_n.Size = new System.Drawing.Size(64, 20);
             this.msk_n.TabIndex = 4;
             this.msk_n.ValidatingType = typeof(int);
             // 
@@ -163,7 +175,7 @@ namespace PseudoRandomNumbers
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 204);
+            this.label5.Location = new System.Drawing.Point(12, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(23, 25);
             this.label5.TabIndex = 8;
@@ -191,11 +203,116 @@ namespace PseudoRandomNumbers
             this.label6.TabIndex = 14;
             this.label6.Text = "Generador";
             // 
+            // txtChiCuadrado
+            // 
+            this.txtChiCuadrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChiCuadrado.Location = new System.Drawing.Point(289, 225);
+            this.txtChiCuadrado.Name = "txtChiCuadrado";
+            this.txtChiCuadrado.Size = new System.Drawing.Size(135, 26);
+            this.txtChiCuadrado.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(293, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 25);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Chi-cuadrado";
+            // 
+            // dgvTabla
+            // 
+            this.dgvTabla.AllowUserToAddRows = false;
+            this.dgvTabla.AllowUserToDeleteRows = false;
+            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Li,
+            this.Ls,
+            this.Fo,
+            this.Fe,
+            this.C,
+            this.CAcum});
+            this.dgvTabla.Location = new System.Drawing.Point(12, 257);
+            this.dgvTabla.Name = "dgvTabla";
+            this.dgvTabla.ReadOnly = true;
+            this.dgvTabla.RowHeadersVisible = false;
+            this.dgvTabla.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvTabla.ShowCellErrors = false;
+            this.dgvTabla.ShowCellToolTips = false;
+            this.dgvTabla.ShowEditingIcon = false;
+            this.dgvTabla.ShowRowErrors = false;
+            this.dgvTabla.Size = new System.Drawing.Size(603, 210);
+            this.dgvTabla.TabIndex = 17;
+            // 
+            // Li
+            // 
+            this.Li.HeaderText = "yi-1";
+            this.Li.Name = "Li";
+            this.Li.ReadOnly = true;
+            // 
+            // Ls
+            // 
+            this.Ls.HeaderText = "yi";
+            this.Ls.Name = "Ls";
+            this.Ls.ReadOnly = true;
+            // 
+            // Fo
+            // 
+            this.Fo.HeaderText = "Observada";
+            this.Fo.Name = "Fo";
+            this.Fo.ReadOnly = true;
+            // 
+            // Fe
+            // 
+            this.Fe.HeaderText = "Esperada";
+            this.Fe.Name = "Fe";
+            this.Fe.ReadOnly = true;
+            // 
+            // C
+            // 
+            this.C.HeaderText = "Estadistico (c)";
+            this.C.Name = "C";
+            this.C.ReadOnly = true;
+            // 
+            // CAcum
+            // 
+            this.CAcum.HeaderText = "Estadistico Acumulado";
+            this.CAcum.Name = "CAcum";
+            this.CAcum.ReadOnly = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(77, 177);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 25);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Intervalos";
+            // 
+            // cmbIntervalos
+            // 
+            this.cmbIntervalos.FormattingEnabled = true;
+            this.cmbIntervalos.Items.AddRange(new object[] {
+            "10",
+            "15",
+            "20"});
+            this.cmbIntervalos.Location = new System.Drawing.Point(82, 203);
+            this.cmbIntervalos.Name = "cmbIntervalos";
+            this.cmbIntervalos.Size = new System.Drawing.Size(83, 21);
+            this.cmbIntervalos.TabIndex = 19;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 505);
+            this.Controls.Add(this.cmbIntervalos);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dgvTabla);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtChiCuadrado);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmb_generador);
             this.Controls.Add(this.label5);
@@ -210,10 +327,11 @@ namespace PseudoRandomNumbers
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_output);
-            this.Controls.Add(this.txta_output);
+            this.Controls.Add(this.txt_output);
             this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +339,7 @@ namespace PseudoRandomNumbers
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox txta_output;
+        private System.Windows.Forms.RichTextBox txt_output;
         private System.Windows.Forms.Label lbl_output;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -236,6 +354,17 @@ namespace PseudoRandomNumbers
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmb_generador;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtChiCuadrado;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvTabla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Li;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ls;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAcum;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbIntervalos;
     }
 }
 
